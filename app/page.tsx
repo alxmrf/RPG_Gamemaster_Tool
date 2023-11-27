@@ -18,7 +18,7 @@ const handleLifeChange = () => {
   setVidaPlayer1(() => {
     return placeholder1
   })	}
-  const handleInput = (e) => {
+  const handleInput = (e:any) => {
     const inputValue = e.target.value
 
     setPlaceholder1((prevState) => {
