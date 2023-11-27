@@ -18,6 +18,13 @@ const handleLifeChange = () => {
   setVidaPlayer1(() => {
     return placeholder1
   })	}
+  const handleInput = (e) => {
+    const inputValue = e.target.value
+
+    setPlaceholder1((prevState) => {
+      return inputValue
+    })
+  }
 
   return (
     <>
@@ -30,7 +37,9 @@ const handleLifeChange = () => {
     <div className="flex justify-center gap-x-8">
         <h1>Player 1</h1>
         <h1>{VidaPlayer1}</h1>
-        <input type="text" value={placeholder1} onChange={(e)=>setPlaceholder1(event.target.value)} />
+        <input type="text" value={placeholder1} 
+        onChange={handleInput}
+        />
         <button className="rounded" onClick={handleLifeChange}>submit</button>
     </div>
   </>)}
