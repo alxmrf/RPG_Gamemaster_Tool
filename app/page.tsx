@@ -1,6 +1,7 @@
-"use client"
+  "use client"
 
 
+import { parse } from "path";
 import { useState } from "react";
 
 
@@ -15,11 +16,34 @@ const [placeholder2, setPlaceholder2] = useState("")
 const [placeholder3, setPlaceholder3] = useState("") 
 
 const handleLifeChange1 = () => {
-  if (placeholder1 !== ""){
+  if (placeholder1[0] ==  "+"){
+    setPlaceholder1(()=>{
+      return placeholder1.substring(1,placeholder1.length)})
     setVidaPlayer1(() => {
-      return placeholder1
-    }
-  )}
+      let placeholderNumber = parseInt(placeholder1,10)
+      let VidaPlayer1Number = parseInt(VidaPlayer1,10)
+      let result =  VidaPlayer1Number + placeholderNumber
+      let resultString = result.toString()
+      return resultString
+    })
+    setPlaceholder1(()=>{
+      return ""
+    })
+  }
+  else if( placeholder1[0] == "-"){
+    setPlaceholder1(()=>{
+      return placeholder1.substring(1,placeholder1.length)})
+    setVidaPlayer1(() => {
+      let placeholderNumber = parseInt(placeholder1,10)
+      let VidaPlayer1Number = parseInt(VidaPlayer1,10)
+      let result =  VidaPlayer1Number - placeholderNumber
+      let resultString = result.toString()
+      return resultString
+    })
+    setPlaceholder1(()=>{
+      return ""
+    })
+  }
 }
 const handleLifeChange2 = () => {
   if (placeholder2 !== ""){
